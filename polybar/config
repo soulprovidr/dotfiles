@@ -1,0 +1,139 @@
+[colors]
+background = #2F3440
+foreground = #F9F9F5
+foreground-alt = #555
+primary = #BFC0C0
+secondary = #B76D68
+tertiary = #91ADC2
+alert = #bd2c40
+
+[bar/top-0]
+monitor = DVI-D-0
+width = 100%
+height = 30
+fixed-center = true
+bottom = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+
+padding-left = 0
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 0
+
+; FONTS
+font-0 = Noto Sans Medium:pixelsize=10;1
+font-1 = Font Awesome 5 Free:pixelsize=10;2
+font-2 = Font Awesome 5 Free:style=Solid:pixelsize=10;2
+font-3 = Font Awesome 5 Brands:pixelsize=10;2
+
+; MODULE ARRANGEMENT
+modules-left = bspwm reddit github
+modules-center = xwindow
+modules-right = network pacman date
+
+; SYSTEM TRAY
+tray-position = right
+tray-transparency = false
+
+; CURSOR
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/top-1]
+inherit = bar/top-0
+monitor = HDMI-0
+tray-position = 
+
+[module/bspwm]
+type = internal/bspwm
+
+format = <label-state> <label-mode>
+enable-scroll = false
+wrapping-scroll = false
+pin-workspaces = true
+
+; focused = Active workspace on focused monitor
+label-focused = %{T3}%{T-}  %name%
+;label-focused-background = ${colors.secondary}
+label-focused-foreground = ${colors.foreground}
+label-focused-inactive-background = ${colors.tertiary}
+label-focused-padding = 3
+label-focused-underline = ${colors.secondary}
+
+; dimmed = Active workspace on unfocused monitor
+label-dimmed = %{T3}%{T-}  %name%
+label-dimmed-background = ${colors.background}
+;label-dimmed-focused-background = ${colors.tertiary}
+label-dimmed-padding = 3
+label-dimmed-focused-underline = ${colors.tertiary}
+
+; occupied = Active workspace on unfocused monitor
+label-occupied = %{T3}%{T-}  %name%
+;label-occupied-background = ${colors.background}
+label-occupied-padding = 3
+;label-occupied-underline = ${colors.tertiary}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %{T3}%{T-}  %name%
+;label-urgent-background = ${colors.primary}
+label-urgent-padding = 3
+label-urgent-underline = ${colors.primary}
+
+label-empty = %{T3}%{T-}  %name%
+label-empty-padding = 3
+label-empty-underline =
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %{T2}%{T-}   %a %b %d %I:%M %p
+
+format-foreground = ${colors.foreground}
+
+[module/github]
+type = internal/github
+token = ${file:~/.config/polybar/github/token}
+interval = 60
+empty-notifications = true
+
+label = %{A1:chromium https\://github.com/notifications:}  %notifications%%{A}
+label-padding-left = 5
+
+[module/network]
+type = internal/network
+interface = enp3s0
+interval = 30
+
+format-connected = <label-connected>
+label-connected =     %local_ip%
+label-connected-padding-right = 10
+
+format-disconnected = <label-disconnected>
+label-disconnected =    Disconnected
+label-disconnected-padding-right = 10
+
+[module/pacman]
+type = custom/script
+exec = pacman -Qu | wc -l
+interval = 60
+label =    %output% updates
+label-padding-right = 10
+
+[module/reddit]
+type = custom/script
+exec = ~/.config/polybar/reddit/reddit.sh
+interval = 60
+label = %{A1:chromium https\://www.reddit.com/message/inbox:}%output%%{A}
+label-padding-left = 10
+
+[module/xwindow]
+type = internal/xwindow
+label =    %title:0:100:...%
+
+[settings]
+screenchange-reload = true
