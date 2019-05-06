@@ -3,15 +3,16 @@
 sxhkd &
 compton &
 nitrogen --restore &
-~/.config/polybar/launch.sh &
+xfce4-panel &
+# ~/.config/polybar/launch.sh &
 dropbox &
 
 bspc monitor DVI-D-0			-d 1 2
 bspc monitor HDMI-0			-d 3 4
 
 bspc config border_width         	3
-bspc config focused_border_color \#B76D68
-bspc config window_gap          	24
+bspc config focused_border_color \#FFFFFF
+bspc config window_gap          	12
 
 bspc config focus_follows_pointer	true
 bspc config pointer_follows_focus	false

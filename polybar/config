@@ -1,10 +1,10 @@
 [colors]
-background = #2F3440
-foreground = #F9F9F5
+background = 
+foreground = #FFFFFF
 foreground-alt = #555
 primary = #BFC0C0
-secondary = #B76D68
-tertiary = #91ADC2
+secondary = #008080
+tertiary = #BCDDDD
 alert = #bd2c40
 
 [bar/top-0]
@@ -16,6 +16,8 @@ bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+; border-bottom-size = 3
+; border-bottom-color = ${colors.foreground}
 
 line-size = 3
 
@@ -33,7 +35,7 @@ font-3 = Font Awesome 5 Brands:pixelsize=10;2
 ; MODULE ARRANGEMENT
 modules-left = bspwm reddit github
 modules-center = xwindow
-modules-right = network pacman date
+modules-right = network date
 
 ; SYSTEM TRAY
 tray-position = right
@@ -58,18 +60,18 @@ pin-workspaces = true
 
 ; focused = Active workspace on focused monitor
 label-focused = %{T3}%{T-}  %name%
-;label-focused-background = ${colors.secondary}
-label-focused-foreground = ${colors.foreground}
-label-focused-inactive-background = ${colors.tertiary}
+label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.secondary}
+; label-focused-inactive-background = ${colors.tertiary}
 label-focused-padding = 3
-label-focused-underline = ${colors.secondary}
+; label-focused-underline = ${colors.secondary}
 
 ; dimmed = Active workspace on unfocused monitor
 label-dimmed = %{T3}%{T-}  %name%
 label-dimmed-background = ${colors.background}
 ;label-dimmed-focused-background = ${colors.tertiary}
 label-dimmed-padding = 3
-label-dimmed-focused-underline = ${colors.tertiary}
+; label-dimmed-focused-underline = ${colors.tertiary}
 
 ; occupied = Active workspace on unfocused monitor
 label-occupied = %{T3}%{T-}  %name%
@@ -81,7 +83,7 @@ label-occupied-padding = 3
 label-urgent = %{T3}%{T-}  %name%
 ;label-urgent-background = ${colors.primary}
 label-urgent-padding = 3
-label-urgent-underline = ${colors.primary}
+; label-urgent-underline = ${colors.primary}
 
 label-empty = %{T3}%{T-}  %name%
 label-empty-padding = 3
