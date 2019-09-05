@@ -5,13 +5,13 @@
  *******************************************************************************/
 
 configuration {
-    show-icons: false;
+    show-icons: true;
 }
 
 * {
     selected-normal-foreground:  rgba ( 255, 255, 255, 100 % );
     foreground:                  rgba ( 193, 193, 193, 100 % );
-    accent:                      #B76D68;
+    accent:                      #BF616A;
     normal-foreground:           @foreground;
     alternate-normal-background: @background;
     selected-urgent-foreground:  rgba ( 255, 24, 68, 100 % );
@@ -39,9 +39,9 @@ configuration {
 #window {
     background-color: @background;
     border: 3;
-    font: "Noto Sans Medium 12";
-    padding: 30;
-    width: 500;
+    font: "Inter Medium 10";
+    padding: 5;
+    width: 300;
 }
 
 #mainbox {
@@ -65,7 +65,7 @@ configuration {
     scrollbar:    true;
 }
 #element {
-    padding: 5px;
+    padding: 5px 10px;
 }
 #element.normal.normal {
     background-color: @normal-background;
@@ -106,7 +106,7 @@ configuration {
 #scrollbar {
     width:        4px ;
     border:       0;
-    handle-width: 8px ;
+    handle-width: 0 ;
     padding:      0;
 }
 #sidebar {

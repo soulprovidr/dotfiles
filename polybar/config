@@ -1,25 +1,42 @@
 [colors]
-background = 
-foreground = #FFFFFF
-foreground-alt = #555
-primary = #BFC0C0
-secondary = #008080
-tertiary = #BCDDDD
-alert = #bd2c40
+white = #FFFFFF
 
-[bar/top-0]
+nord0 =  #2e3440
+nord1 =  #3b4252
+nord2 =  #434c5e
+nord3 =  #4c566a
+nord4 =  #d8dee9
+nord5 =  #e5e9f0
+nord6 =  #eceff4
+nord7 =  #8fbcbb
+nord8 =  #88c0d0
+nord9 =  #81a1c1
+nord10 = #5e81ac
+nord11 = #bf616a
+nord12 = #d08770
+nord13 = #ebcb8b
+nord14 = #a3be8c
+nord15 = #b48ead
+
+[global/wm]
+margin-top = 5
+margin-bottom = 0
+
+[bar/main]
 monitor = DVI-D-0
-width = 100%
+
+width = 1870
 height = 30
 fixed-center = true
-bottom = false
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-; border-bottom-size = 3
-; border-bottom-color = ${colors.foreground}
+offset-x = 25
+offset-y = 12
 
-line-size = 3
+radius-top = 4
+radius-bottom = 4
+
+background = ${colors.nord0}
+foreground = ${colors.white}
 
 padding-left = 0
 padding-right = 2
@@ -27,7 +44,7 @@ module-margin-left = 0
 module-margin-right = 0
 
 ; FONTS
-font-0 = Noto Sans Medium:pixelsize=10;1
+font-0 = Inter Regular:pixelsize=10;3
 font-1 = Font Awesome 5 Free:pixelsize=10;2
 font-2 = Font Awesome 5 Free:style=Solid:pixelsize=10;2
 font-3 = Font Awesome 5 Brands:pixelsize=10;2
@@ -38,15 +55,15 @@ modules-center = xwindow
 modules-right = network date
 
 ; SYSTEM TRAY
-tray-position = right
-tray-transparency = false
+tray-position = 
+tray-transparency = true
 
 ; CURSOR
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[bar/top-1]
-inherit = bar/top-0
+[bar/secondary]
+inherit = bar/main
 monitor = HDMI-0
 tray-position = 
 
@@ -59,43 +76,45 @@ wrapping-scroll = false
 pin-workspaces = true
 
 ; focused = Active workspace on focused monitor
-label-focused = %{T3}%{T-}  %name%
-label-focused-background = ${colors.foreground}
-label-focused-foreground = ${colors.secondary}
-; label-focused-inactive-background = ${colors.tertiary}
-label-focused-padding = 3
-; label-focused-underline = ${colors.secondary}
+;label-focused = %{T3}%{T-}  %name%
+label-focused = %name%
+label-focused-background = ${colors.nord11}
+label-focused-foreground = ${colors.white}
+label-focused-padding = 4
 
 ; dimmed = Active workspace on unfocused monitor
-label-dimmed = %{T3}%{T-}  %name%
-label-dimmed-background = ${colors.background}
-;label-dimmed-focused-background = ${colors.tertiary}
-label-dimmed-padding = 3
-; label-dimmed-focused-underline = ${colors.tertiary}
+;label-dimmed = %{T3}%{T-}  %name%
+label-dimmed = %name%
+label-dimmed-background = ${colors.nord0}
+label-dimmed-foreground = ${colors.white}
+label-dimmed-focused-background = ${colors.nord9}
+label-dimmed-padding = 4
 
 ; occupied = Active workspace on unfocused monitor
-label-occupied = %{T3}%{T-}  %name%
-;label-occupied-background = ${colors.background}
-label-occupied-padding = 3
-;label-occupied-underline = ${colors.tertiary}
+;label-occupied = %{T3}%{T-}  %name%
+label-occupied = %name%
+label-occupied-background = ${colors.nord0}
+label-occupied-padding = 4
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %{T3}%{T-}  %name%
-;label-urgent-background = ${colors.primary}
+;label-urgent = %{T3}%{T-}  %name%
+label-urgent = %name%
+label-urgent-background = ${colors.nord13}
 label-urgent-padding = 3
-; label-urgent-underline = ${colors.primary}
 
-label-empty = %{T3}%{T-}  %name%
-label-empty-padding = 3
+;label-empty = %{T3}%{T-}  %name%
+label-empty = %name%
+label-empty-padding = 4
 label-empty-underline =
 
 [module/date]
 type = internal/date
 interval = 5
 
-date = %{T2}%{T-}   %a %b %d %I:%M %p
+date = %{T2}%{T-}  %a %b %d %I:%M %p
 
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.white}
+label-padding-right = 1
 
 [module/github]
 type = internal/github
@@ -109,11 +128,11 @@ label-padding-left = 5
 [module/network]
 type = internal/network
 interface = enp3s0
-interval = 30
+interval = 6000
 
 format-connected = <label-connected>
-label-connected =     %local_ip%
-label-connected-padding-right = 10
+label-connected =   %local_ip%
+label-connected-padding-right = 5
 
 format-disconnected = <label-disconnected>
 label-disconnected =    Disconnected
