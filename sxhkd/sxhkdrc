@@ -6,9 +6,16 @@
 super + Return
 	terminator
 
+# launch file manager
+super + @backslash
+	thunar
+
 # program launcher
 super + @space
 	rofi -show drun
+
+Print
+	xfce4-screenshooter
 
 # make sxhkd reload its configuration files:
 super + Escape

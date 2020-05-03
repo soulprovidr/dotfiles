@@ -1,12 +1,24 @@
 [global_config]
-  always_split_with_profile = True
-  title_inactive_bg_color = "#4C566A"
-  title_inactive_fg_color = "#D8DEE9"
-  title_receive_bg_color = "#8FBCBB"
-  title_receive_fg_color = "#2E3440"
-  title_transmit_bg_color = "#88C0D0"
   title_transmit_fg_color = "#2E3440"
+  title_transmit_bg_color = "#88C0D0"
+  title_receive_fg_color = "#2E3440"
+  title_receive_bg_color = "#8FBCBB"
+  title_inactive_fg_color = "#D8DEE9"
+  title_inactive_bg_color = "#4C566A"
+  suppress_multiple_term_dialog = True
+  always_split_with_profile = True
 [keybindings]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    scrollback_lines = 2000
+  [[nord]]
+    background_color = "#2e3440"
+    cursor_color = "#D8DEE9"
+    font = SF Mono Medium 10
+    foreground_color = "#d8dee9"
+    palette = "#3b4252:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#e5e9f0:#4c566a:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#8fbcbb:#eceff4"
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -16,12 +28,68 @@
     [[[window0]]]
       parent = ""
       type = Window
+  [[Chat Ninjas]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 25:67
+      size = 1870, 939
+      title = soulprovidr@soulprovidr:~/Projects/gubagoo/resq-desktop
+      type = Window
+    [[[child1]]]
+      active_page = 0
+      labels = None, None
+      last_active_term = 2e04c6e5-7dc2-4212-83a0-6fb452e68b0f, c2d3a822-74a1-4216-bbeb-92cee24b3979
+      order = 0
+      parent = child0
+      type = Notebook
+    [[[child4]]]
+      fullscreen = False
+      last_active_term = 2cff4405-04ff-4042-b799-828edb5fd23a
+      last_active_window = False
+      maximised = False
+      order = 0
+      parent = ""
+      position = 25:67
+      size = 1870, 939
+      title = soulprovidr@soulprovidr:~/Projects/gubagoo/demo-sites
+      type = Window
+    [[[child6]]]
+      fullscreen = False
+      last_active_term = ed06db14-51ed-4a19-a152-aae9f75c6d47
+      last_active_window = False
+      maximised = False
+      order = 0
+      parent = ""
+      position = 25:67
+      size = 1870, 939
+      title = soulprovidr@soulprovidr:~/Projects/gubagoo/chat-console
+      type = Window
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = nord
+      type = Terminal
+      uuid = 2e04c6e5-7dc2-4212-83a0-6fb452e68b0f
+    [[[terminal3]]]
+      order = 1
+      parent = child1
+      profile = nord
+      type = Terminal
+      uuid = c2d3a822-74a1-4216-bbeb-92cee24b3979
+    [[[terminal5]]]
+      order = 0
+      parent = child4
+      profile = nord
+      type = Terminal
+      uuid = 2cff4405-04ff-4042-b799-828edb5fd23a
+    [[[terminal7]]]
+      order = 0
+      parent = child6
+      profile = nord
+      type = Terminal
+      uuid = ed06db14-51ed-4a19-a152-aae9f75c6d47
 [plugins]
-[profiles]
-  [[default]]
-    cursor_color = "#aaaaaa"
-  [[nord]]
-    background_color = "#2e3440"
-    cursor_color = "#D8DEE9"
-    foreground_color = "#d8dee9"
-    palette = "#3b4252:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#e5e9f0:#4c566a:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#8fbcbb:#eceff4"
