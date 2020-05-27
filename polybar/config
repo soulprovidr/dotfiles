@@ -19,17 +19,16 @@ nord14 = #a3be8c
 nord15 = #b48ead
 
 [global/wm]
-margin-top = 5
-margin-bottom = 0
+margin-top = 0
+margin-bottom = 10
 
-[bar/main]
-monitor = DVI-D-0
-
-width = 1870
+[bar/generic]
+fixed-center = false
+bottom = true
 height = 30
-fixed-center = true
+; override-redirect = true
+; wm-restack = bspwm
 
-offset-x = 25
 offset-y = 12
 
 radius-top = 4
@@ -38,8 +37,7 @@ radius-bottom = 4
 background = ${colors.nord0}
 foreground = ${colors.white}
 
-padding-left = 0
-padding-right = 2
+padding = 4
 module-margin-left = 0
 module-margin-right = 0
 
@@ -49,24 +47,38 @@ font-1 = Font Awesome 5 Free:pixelsize=10;2
 font-2 = Font Awesome 5 Free:style=Solid:pixelsize=10;2
 font-3 = Font Awesome 5 Brands:pixelsize=10;2
 
-; MODULE ARRANGEMENT
-modules-left = bspwm reddit github
-modules-center = xwindow
-modules-right = network date
+[bar/bspwm-1]
+inherit = bar/generic
+monitor = DVI-D-0
+offset-x = 25
+width = 120
+padding = 0
 
-; SYSTEM TRAY
-tray-position = 
-tray-transparency = true
+; MODULE ARRANGEMENT
+modules-left = bspwm
 
 ; CURSOR
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[bar/secondary]
-inherit = bar/main
-monitor = HDMI-0
-tray-position = 
 
+[bar/launcher]
+inherit = bar/generic
+monitor = DVI-D-0
+width = 300
+offset-x = 1300
+modules-left = spotify
+
+[bar/bspwm-2]
+inherit = bar/bspwm-1
+monitor = HDMI-0
+
+[bar/xwindow-1]
+inherit = bar/generic
+width = 400
+monitor = DVI-D-0
+modules-left = xwindow
+offset-x = 170
 [module/bspwm]
 type = internal/bspwm
 
@@ -145,16 +157,23 @@ interval = 60
 label =    %output% updates
 label-padding-right = 10
 
-[module/reddit]
+[module/spotify]
 type = custom/script
-exec = ~/.config/polybar/reddit/reddit.sh
-interval = 60
-label = %{A1:chromium https\://www.reddit.com/message/inbox:}%output%%{A}
-label-padding-left = 10
+interval = 1
+format = <label>
+exec = python ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -f '{play_pause} {song} - {artist}'
+format-underline = #1db954
+module-padding = 4
+
+[module/text]
+type = custom/text
+content = " "
+
 
 [module/xwindow]
 type = internal/xwindow
 label =    %title:0:100:...%
+label-empty = %{F#4c566a}   No window selected.%{F-}
 
 [settings]
 screenchange-reload = true
